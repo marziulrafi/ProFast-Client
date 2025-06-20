@@ -18,7 +18,7 @@ const Brands = () => {
 
                 <Marquee pauseOnHover speed={60} gradient={false}>
                     {logos.map((logo, idx) => (
-                        <div key={idx} className="mx-24 flex items-center">
+                        <div key={idx} className="mx-16 flex items-center">
                             <img src={logo} alt={`Client Logo ${idx + 1}`} className="h-6 object-contain" />
                         </div>
                     ))}
