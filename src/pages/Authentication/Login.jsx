@@ -8,7 +8,7 @@ const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        console.log(data);
+        //console.log(data);
     }
 
     return (
@@ -21,9 +21,11 @@ const Login = () => {
                         <label className="label">Email</label>
                         <input
                             type="email"
-                            {...register('email')}
+                             {...register('email', { required: true })}
                             className="input" placeholder="Email" />
-
+                        {
+                            errors.email?.type === 'required' && <p className='text-red-500 font-bold'>Email is required</p>
+                        }
 
                         <label className="label">Password</label>
                         <input
@@ -34,17 +36,17 @@ const Login = () => {
                             })}
                             className="input" placeholder="Password" />
                         {
-                            errors.password?.type === 'required' && <p className='text-red-500'>Password is required</p>
+                            errors.password?.type === 'required' && <p className='text-red-500 font-bold'>Password is required</p>
                         }
                         {
-                            errors.password?.type === 'minLength' && <p className='text-red-500'>Password Must be 6 characters or longer</p>
+                            errors.password?.type === 'minLength' && <p className='text-red-500 font-bold'>Password Must be 6 characters or longer</p>
                         }
 
                         <div><a className="link link-hover">Forgot password?</a></div>
 
                         <button className="btn btn-primary text-black mt-4">Login</button>
                     </fieldset>
-                    <p><small>New to this website? <Link className="btn btn-link" to="/register">Register</Link></small></p>
+                    <p><small>New to this website? <Link className="font-bold text-primary underline hover:text-black" to="/register">Register</Link></small></p>
                 </form>
                 <SocialLogin />
             </div>
