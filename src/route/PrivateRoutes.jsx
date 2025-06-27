@@ -3,7 +3,7 @@ import React from 'react';
 import { Navigate } from 'react-router';
 import useAuth from '../hooks/useAuth';
 
-const PrivateRoute = ({ children }) => {
+const PrivateRoutes = ({ children }) => {
     const { user, loading } = useAuth();
 
     if (loading) {
@@ -17,4 +17,4 @@ const PrivateRoute = ({ children }) => {
     return children;
 };
 
-export default PrivateRoute;
+export default PrivateRoutes;
